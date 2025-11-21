@@ -23,8 +23,27 @@ const skills = [
   ];
 export const SkillsSection = () => {
     return <>
-        <section>
+        <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+            <div className="container mx-auto max-w-5xl">
+                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    My <span className="text-primary">Skills</span>
 
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {skills.map((skill, index) => (
+                        <div key={index} className="bg-background/70 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
+                            <div className="w-full bg-background/30 rounded-full h-4">
+                                <div 
+                                    className="bg-primary h-4 rounded-full transition-all duration-500"
+                                    style={{ width: `${skill.level}%` }}
+                                ></div>
+                            </div>
+                            <p className="text-sm mt-2">{skill.level}% Proficiency</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </section>
     </>
 };
