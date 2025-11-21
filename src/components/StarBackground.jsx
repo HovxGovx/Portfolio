@@ -24,7 +24,7 @@ export const StarBackground = () => {
         }        setStars(newStars); 
     };
     const generateMeteors = () => {
-        const numberOfMeteors = 4; 
+        const numberOfMeteors = 8; 
         const newMeteors = [];
         for (let i = 0; i < numberOfMeteors; i++) {
             newMeteors.push({
@@ -32,10 +32,11 @@ export const StarBackground = () => {
                 x: Math.random() * 100,
                 y: Math.random() * 20,
                 delay: Math.random() * 15,
-                size: Math.random() * 2 + 1,
+                size: Math.random()  + 1,
                 animationDuration: Math.random() * 3 + 3,
             });
-        }        setMeteors(newMeteors); 
+        }       
+        setMeteors(newMeteors); 
     };
     return (
       <div className='fixed inset-0 overflow-hidden pointer-events-none z-0'>
@@ -54,12 +55,12 @@ export const StarBackground = () => {
 
             />
         ))}
-        { stars.map((meteor) => (
+        { meteors.map((meteor) => (
             <div 
                 key={meteor.id} 
                 className='meteor animate-meteor'
                 style={{
-                    width: `${meteor.size}px`,
+                    width: meteor.size  + 'px',
                     height:` ${meteor.size}px`,
                     left:`${meteor.x}%`,
                     top:`${meteor.y}%`,
